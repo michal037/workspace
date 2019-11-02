@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Optical Fiber</title>
+	<style>
+		html {
+			background: #fff;
+			width: 1024px;
+			margin: 0 auto;
+			padding: 0;
+			border: 0;
+		}
+
+		body {
+			margin: 10px;
+			padding: 2px;
+			border: 0;
+			font-family: sans-serif;
+			font-size: 1em;
+			line-height: 1.2;
+			color: #222;
+		}
+
+		#domPlot {
+			display: none;
+			width: 998px;
+			height: 700px;
+			border: 1px solid #aaa;
+		}
+
+		#domMenuGenerate {
+			display: block;
+			width: 800px;
+			height: 250px;
+			margin: 0 auto;
+			font-size: 100px;
+			font-weight: bold;
+			color: #222;
+		}
+	</style>
+</head>
+<body>
+	<div id="domMenu">
+		<button id="domMenuGenerate">GENERATE</button>
+	</div>
+	<div id="domPlot"></div>
+	
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script>
+		/* main scope */
+		let OFApp = {};
+
+		/* DOM structure */
+		OFApp.dom = {};
+
+		/* callbacks structure */
+		OFApp.callback = {};
+
+		/* tests */
+		OFApp.test = {};
+
+		/* callback for domMenuGenerate */
+		OFApp.callback.menuGenerate = function() {
+			/* configuration */
+			let points = 450;
+			let coreDiameter = 30;
+			let claddingDiameter = 125;
+			
+			/* minimum 3 points */
+			if(points < 3) points = 3;
+			/* always an odd number of points */
+			if((points % 2) === 0) points++;
+			
+			/* center of profile */
+			let center = Math.floor(points / 2);
+			
+			/* calculate distance from center to point */
+			let distance = function(y, x) {
+				return Math.sqrt(Math.pow(x - center, 2) + Math.pow(y - center, 2)) / center;
+			};
+			
+			/* shape functions */
+			let core = function(x) {
+				if((x >= 0) && (x < coreDiameter)) {
+					return 10;
+				} else {
+					return 0;
+				}
+			};
+			
+			let cladding = function(x) {
+				if((x >= coreDiameter) && (x < claddingDiameter)) {
+					return 9;
+				} else {
+					return 0;
+				}
+			};
+			
+			let coating = function(x) {
+				if((x >= claddingDiameter) && (x < 250)) {
+					return 7;
+				} else {
+					return 0;
+				}
+			};
+			
+			/* --------- for core --------- */
+			let arrCore = [];
+
+			/* allocate memory */
+			for(let i=0; i<points ;i++) arrCore[i] = [];
+
+			/* calculate core shape */
+			for(let i=0; i<points ;i++)
+				for(let j=0; j<points ;j++)
+					arrCore[i][j] = core(distance(i, j) * 250.0);
+
+			/* --------- for cladding --------- */
+			let arrCladding = [];
+
+			/* allocate memory */
+			for(let i=0; i<points ;i++) arrCladding[i] = [];
+
+			/* calculate cladding shape */
+			for(let i=0; i<points ;i++)
+				for(let j=0; j<points ;j++)
+					arrCladding[i][j] = cladding(distance(i, j) * 250.0);
+
+			/* --------- for coating --------- */
+			let arrCoating = [];
+
+			/* allocate memory */
+			for(let i=0; i<points ;i++) arrCoating[i] = [];
+
+			/* calculate coating shape */
+			for(let i=0; i<points ;i++)
+				for(let j=0; j<points ;j++)
+					arrCoating[i][j] = coating(distance(i, j) * 250.0);
+
+			/* make objects */
+			let dataCore = {
+				type: "surface",
+				z: arrCore,
+				showscale: false,
+				hoverinfo: "none",
+				cmin: 0,
+				cmax: 1,
+				cauto: false,
+				autocolorscale: false,
+				colorscale: [
+					[0, "#B20A1C"],
+					[1, "#B20A1C"]
+				],
+				contours: {
+					x: {
+						highlight: false
+					},
+					y: {
+						highlight: false
+					},
+					z: {
+						highlight: false
+					},
+				}
+			};
+			
+			let dataCladding = {
+				type: "surface",
+				z: arrCladding,
+				opacity: 0.70,
+				showscale: false,
+				hoverinfo: "none",
+				cmin: 0,
+				cmax: 1,
+				cauto: false,
+				autocolorscale: false,
+				colorscale: [
+					[0, "#003c30"],
+					[1, "#003c30"]
+				],
+				contours: {
+					x: {
+						highlight: false
+					},
+					y: {
+						highlight: false
+					},
+					z: {
+						highlight: false
+					},
+				}
+			};
+			
+			let dataCoating = {
+				type: "surface",
+				z: arrCoating,
+				opacity: 0.70,
+				showscale: false,
+				hoverinfo: "none",
+				cmin: 0,
+				cmax: 1,
+				cauto: false,
+				autocolorscale: false,
+				colorscale: [
+					[0, "#1a1a1a"],
+					[1, "#1a1a1a"]
+				],
+				contours: {
+					x: {
+						highlight: false
+					},
+					y: {
+						highlight: false
+					},
+					z: {
+						highlight: false
+					},
+				}
+			};
+
+			/* plot layout */
+			let layout = {
+				font: {
+					color: "black"
+				},
+				margin: {
+					l: 1,
+					r: 1,
+					t: 26,
+					b: 1,
+					pad: 0
+				},
+				modebar: {
+					bgcolor: "#fff",
+					color: "#909090",
+					activecolor: "#000"
+				},
+				scene: {
+					xaxis: {
+						visible: false,
+						autorange: false,
+						type: "linear",
+						range: [0, points*5]
+					},
+					yaxis: {
+						visible: false,
+						autorange: false,
+						type: "linear",
+						range: [0, points*5]
+					},
+					zaxis: {
+						visible: false,
+						autorange: false,
+						type: "linear",
+						range: [0.0001, 10.0001]
+					}
+				}
+			};
+
+			/* plot config */
+			let config = {
+				toImageButtonOptions: {
+					format: 'png', /* one of png/svg/jpeg/webp */
+					filename: 'opticalFiber',
+					width: 700,
+					height: 450,
+					scale: 2 /* multiply title/legend/axis/canvas sizes by this factor */
+				},
+				displaylogo: false,
+				showSendToCloud: true
+			};
+
+			/* for tests */
+			OFApp.test.data = {};
+			OFApp.test.data.core = dataCore;
+			OFApp.test.data.cladding = dataCladding;
+			OFApp.test.data.coating = dataCoating;
+			OFApp.test.layout = layout;
+			OFApp.test.config = config;
+			
+			/* make plot */
+			Plotly.react(OFApp.dom.plot, [dataCore, dataCladding, dataCoating], layout, config);
+
+			/* hide menu, show plot */
+			OFApp.dom.menu.style.display = "none";
+			OFApp.dom.plot.style.display = "block";
+		};
+
+		/* entry point */
+		document.addEventListener("DOMContentLoaded", function() {
+			/* search for DOM elements */
+			OFApp.dom.menu = document.getElementById('domMenu');
+			OFApp.dom.menuGenerate = document.getElementById('domMenuGenerate');
+			OFApp.dom.plot = document.getElementById('domPlot');
+			
+			/* test DOM elements */
+			try {
+				if(!OFApp.dom.menu) throw "OFApp.dom.menu";
+				if(!OFApp.dom.menuGenerate) throw "OFApp.dom.menuGenerate";
+				if(!OFApp.dom.plot) throw "OFApp.dom.plot";
+			} catch(error) {
+				console.error('The required DOM element was not found!\n\t' + 
+					'name: ' + error
+				);
+				alert('ERROR: The required DOM element was not found!');
+				
+				return false;
+			}
+			
+			/* add callbacks to event Listeners */
+			OFApp.dom.menuGenerate.addEventListener("click", OFApp.callback.menuGenerate);
+		});
+	</script>
+</body>
+</html>
