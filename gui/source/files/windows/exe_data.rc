@@ -1,0 +1,32 @@
+0 ICON "icon.ico"
+
+1 VERSIONINFO
+FILEVERSION 1, 0, 0, 0
+PRODUCTVERSION 1, 0, 0, 0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904E4"
+        BEGIN
+            VALUE "CompanyName", "None"
+            VALUE "FileVersion", "1.0"
+            VALUE "FileDescription", "github.com/michal037"
+            VALUE "InternalName", "GUI Engine"
+            VALUE "LegalCopyright", "(C) Copyright by michal037"
+            VALUE "LegalTrademarks", ""
+            VALUE "OriginalFilename", "gui_engine.exe"
+            VALUE "ProductName", "GUI Engine"
+            VALUE "ProductVersion", "1.0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0809, 1252
+    END
+END
+
+MICHAL037 RCDATA
+BEGIN
+    ""
+END
