@@ -32,14 +32,6 @@ class Tree {
 private:
 	Node *root;
 
-	void recursionPrint(Node *tmp) const {
-		if(tmp != NULL) {
-			recursionPrint(tmp->left);
-			cout << "ptr: " << tmp << "; value: " << tmp->value << endl;
-			recursionPrint(tmp->right);
-		}
-	}
-
 public:
 	Tree() {
 		this->root = NULL;
@@ -52,7 +44,45 @@ public:
 		}
 	}
 
+	/* with recursion */
 	Tree& add(int value) {
+		Node *element = new Node(value);
+
+		if(this->root == NULL) {
+			this->root = element;
+			return *this;
+		}
+
+		class _add {
+			Node *root;
+			Node *element;
+		public:
+			_add(Node *root, Node *element): root(root), element(element) {}
+			void run() {
+				if(this->element->value < this->root->value) {
+					if(this->root->left == NULL) {
+						this->root->left = this->element;
+						return;
+					}
+					this->root = this->root->left;
+					run();
+				} else {
+					if(this->root->right == NULL) {
+						this->root->right = this->element;
+						return;
+					}
+					this->root = this->root->right;
+					run();
+				}
+			}
+		} help(this->root, element);
+
+		help.run();
+		return *this;
+	}
+
+	/* without recursion */
+	Tree& add2(int value) {
 		Node *element = new Node(value);
 
 		if(this->root == NULL) {
@@ -93,7 +123,18 @@ public:
 	}
 
 	void print() const {
-		this->recursionPrint(this->root);
+		class recursionPrint {
+		public:
+			static void run(Node *from) {
+				if(from != NULL) {
+					run(from->left);
+					cout << "ptr: " << from << "; value: " << from->value << endl;
+					run(from->right);
+				}
+			}
+		};
+
+		recursionPrint::run(this->root);
 	}
 };
 
