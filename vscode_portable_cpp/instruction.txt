@@ -1,0 +1,31 @@
+# Michal Kozakiewicz <michalkozakiewicz3@gmail.com>
+# 9 December 2019
+# Portable VSCode for simple GCC C++ projects; 64-bits
+
+PREPARE:
+01. Download VSCode 64-bits in ZIP archive from: https://code.visualstudio.com/Download
+02. Download MinGW-W64 64-bits (x86_64-posix-seh) from: https://sourceforge.net/projects/mingw-w64/files/
+03. Create vscode_portable directory
+04. Unzip VSCode and MinGW-W64 and skeleton.zip directly into vscode_portable directory
+05. Copy code_start.cmd and run_program.cmd and skeleton.cmd directly into vscode_portable directory
+06. Create data directory directly in the vscode_portable directory
+07. Files structure:
+  vscode_portable
+  |- (a lot of VSCode files)
+  |- data\
+  |- mingw64\
+  |- skeleton\
+  |- code_start.cmd
+  |- run_program.cmd
+  |- skeleton.cmd
+08. Always run VSCode by the code_start.cmd script! Run it now.
+09. Download extensions Ctrl+Shift+X: Noctis (Liviu Schera), C/C++ (Microsoft)
+10. Open VSCode settings in the JSON Mode and paste content of VSCode_config.txt file in it
+
+USE:
+01. Create project directory and open it with VSCode "File -> Open Folder..."
+02. Open internal VSCode terminal Ctrl+` and type skeleton and press Enter, This should initialize project directory with the skeleton files
+03. Press Ctrl+Shift+B to Clean-Build-Run project
+04. Press F5 to run Debug Mode
+05. Click "Terminal -> Run Task..." to run additional action
+06. Add new source files to .vscode\tasks.json build tasks
