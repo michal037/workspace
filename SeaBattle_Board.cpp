@@ -1,19 +1,15 @@
 /* Michal Kozakiewicz 10.01.2020 */
 
-#include <iostream> /* cout, cerr, endl, bad_alloc */
+#include <iostream> /* bad_alloc, cout, endl */
 #include <ctime> /* time */
 #include <cstdlib> /* srand, rand */
 
 using namespace std;
 
-/* It have to be continuous from 0. To be able to count the number of elements.
- * This is needed for the set() method.
- */
 typedef enum {
-	SEABATTLE_BOARD_STATE_EMPTY     = 0,
-	SEABATTLE_BOARD_STATE_SHIP      = 1,
-	SEABATTLE_BOARD_STATE_DESTROYED = 2,
-	SEABATTLE_BOARD_STATE_LASTVALUE = 3
+	SEABATTLE_BOARD_STATE_EMPTY,
+	SEABATTLE_BOARD_STATE_SHIP,
+	SEABATTLE_BOARD_STATE_DESTROYED
 } SeaBattle_Board_State;
 
 class SeaBattle_Board {
@@ -95,16 +91,12 @@ public:
 			throw "SeaBattle_Board: set(): Column range exceeded!";
 		}
 
-		if(value >= SEABATTLE_BOARD_STATE_LASTVALUE) {
-			throw "SeaBattle_Board: set(): Attempt to assign the incorrect value!";
-		}
-
 		this->board[row][column] = value;
 
 		return *this;
 	}
 
-	void print() const {
+	void print() const noexcept {
 		bool use_coordinates = false;
 
 		/* use coordinates if board size is less than equal 26x26 */
@@ -153,7 +145,7 @@ public:
 						break;
 
 					default:
-						throw "SeaBattle_Board: print(): Incorrect value in board!";
+						cout << "*";
 						break;
 				}
 			}
