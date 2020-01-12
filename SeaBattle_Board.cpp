@@ -1,6 +1,6 @@
 /* Michal Kozakiewicz 10.01.2020 */
 
-#include <iostream> /* bad_alloc, cout, endl */
+#include <iostream> /* bad_alloc, cout, cerr, endl */
 #include <ctime> /* time */
 #include <cstdlib> /* srand, rand */
 
