@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title>NWD - Największy Wspólny Dzielnik</title>
+	<meta name="description" content="Największy Wspólny Dzielnik - michal037">
+	<meta name="keywords" content="najwiekszy, wspolny, dzielnik, NWD, online, michal037">
+	<meta name="author" content="Michal Kozakiewicz michalkozakiewicz3@gmail.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		html {
+			background: #0c1217;
+			color: #fff;
+			font-family: sans-serif;
+			font-size: 1em;
+			line-height: 1.2;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			margin: 0 auto 0;
+			padding: 2px;
+			width: 316px;
+		}
+
+		.title {
+			font-size: 1em;
+			text-align: center;
+			margin: 5px 0 5px;
+		}
+
+		.code {
+			display: block;
+			margin: 10px 0 10px;
+			padding: 0;
+			font-family: monospace;
+			font-size: 1em;
+			line-height: 1.5;
+		}
+
+		#inputA, #inputB {
+			display: block;
+			margin: 5px 0 5px;
+			border: 2px solid #fff;
+			padding: 2px;
+			width: 308px;
+			background: #0c1217;
+			color: #fff;
+			font-size: 1em;
+		}
+
+		#inputA:focus, #inputB:focus {
+			border: 2px dashed #fff;
+			outline: none;
+		}
+
+		#buttonRun, #buttonClear {
+			display: block;
+			margin: 5px 0 5px;
+			border: 2px solid #fff;
+			padding: 2px;
+			width: 316px; /* 310px + 6px */
+			background: #fff;
+			color: #0c1217;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		#buttonRun:active, #buttonClear:active {
+			border: 2px dashed #fff;
+			background: #3d4145;
+			color: #fff;
+		}
+
+		#buttonRun:focus, #buttonClear:focus {
+			outline: none;
+		}
+
+		#outputdiv {
+			display: block;
+			margin: 10px 0 10px;
+			padding: 0;
+			font-family: monospace;
+			font-size: 1em;
+			line-height: 1.5;
+		}
+	</style>
+	<meta name="theme-color" content="#0c1217">
+</head>
+<body>
+	<h1 class="title">Największy Wspólny Dzielnik</h1>
+	<div class="code">
+		int NWD(int a, int b) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;int c;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;while(b != 0) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c = a % b;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = b;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = c;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;return a;<br>
+		}
+	</div>
+	<input id="inputA" type="number" min="0" step="1" placeholder="a">
+	<input id="inputB" type="number" min="0" step="1" placeholder="b">
+	<button id="buttonRun" type="button">Oblicz!</button>
+	<button id="buttonClear" type="button">Wyczyść!</button>
+	<div id="outputdiv"></div>
+	<script src="nwd.js"></script>
+</body>
+</html>
