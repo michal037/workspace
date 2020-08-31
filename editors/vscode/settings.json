@@ -1,0 +1,26 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.insertSpaces": false,
+    "editor.accessibilitySupport": "off",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "workbench.editor.highlightModifiedTabs": true,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "window.zoomLevel": 0,
+    "terminal.integrated.cursorBlinking": true,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "workbench.colorTheme": "Noctis Azureus",
+    "editor.wordWrap": "on",
+    "python.defaultInterpreterPath": "C:\\Python\\Python38\\python.exe",
+    "files.autoSave": "off",
+    "python.linting.mypyEnabled": true,
+    "python.showStartPage": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.autoComplete.addBrackets": true
+}
