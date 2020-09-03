@@ -1,28 +1,35 @@
 {
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Noctis Azureus",
     "workbench.startupEditor": "newUntitledFile",
-    "editor.insertSpaces": false,
+    "workbench.editor.highlightModifiedTabs": true,
     "editor.accessibilitySupport": "off",
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.wordWrap": "on",
+    "editor.insertSpaces": false,
     "editor.rulers": [
         80,
         120
     ],
-    "workbench.editor.highlightModifiedTabs": true,
-    "telemetry.enableTelemetry": false,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-    "window.zoomLevel": 0,
-    "terminal.integrated.cursorBlinking": true,
-    "editor.renderWhitespace": "none",
-    "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Noctis Azureus",
-    "editor.wordWrap": "on",
-    "python.defaultInterpreterPath": "C:\\Python\\Python38\\python.exe",
     "files.autoSave": "off",
-    "python.linting.mypyEnabled": true,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.shell.windows": "cmd.exe",
+    "terminal.integrated.cursorBlinking": true,
+    "python.defaultInterpreterPath": "C:\\Python\\Python38\\python.exe",
     "python.showStartPage": false,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
-    },
+    "python.linting.mypyEnabled": true,
     "python.autoComplete.addBrackets": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.rulers": [
+            80,
+            100
+        ]
+    },
+    "vscodeGoogleTranslate.preferredLanguage": "English",
     "vscodeGoogleTranslate.HoverTranslations": false,
-    "vscodeGoogleTranslate.preferredLanguage": "English"
+    "autoDocstring.quoteStyle": "'''"
 }

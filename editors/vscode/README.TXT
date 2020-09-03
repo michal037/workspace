@@ -9,3 +9,7 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-pyth
 Name: Vscode Google Translate
 Publisher: funkyremi
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=funkyremi.vscode-google-translate
+
+Name: Python Docstring Generator
+Publisher: Nils Werner
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring
