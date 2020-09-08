@@ -1,0 +1,19 @@
+{
+	"caret_style": "phase",
+	"color_scheme": "Packages/Guna/themes/Guna.sublime-color-scheme",
+	"enable_hexadecimal_encoding": false,
+	"gn_hide_tab_dropdown": true,
+	"gn_overlay_scroll_bars": true,
+	"gn_sidebar_box": true,
+	"gnwidgx": true,
+	"highlight_line": true,
+	"hot_exit": false,
+	"rulers":
+	[
+		80,
+		120
+	],
+	"show_encoding": true,
+	"show_line_endings": true,
+	"theme": "Guna.sublime-theme"
+}
