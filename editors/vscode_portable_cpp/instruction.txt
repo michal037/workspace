@@ -1,4 +1,4 @@
-# Michal Kozakiewicz <michalkozakiewicz3@gmail.com>
+# Michal Kozakiewicz github.com/michal037
 # 9 December 2019
 # Portable VSCode for simple GCC C++ projects; 64-bits
 
