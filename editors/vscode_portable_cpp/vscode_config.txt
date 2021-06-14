@@ -1,18 +1,27 @@
 {
+    "workbench.colorTheme": "Noctis Azureus",
     "workbench.startupEditor": "newUntitledFile",
-    "editor.insertSpaces": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.accessibilitySupport": "off",
+    "editor.wordWrap": "on",
     "editor.rulers": [
         80,
-        120
+        100
     ],
-    "workbench.editor.highlightModifiedTabs": true,
-    "telemetry.enableTelemetry": false,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-    "window.zoomLevel": 0,
     "terminal.integrated.cursorBlinking": true,
-    "editor.renderWhitespace": "none",
-    "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Noctis Azureus",
-    "editor.wordWrap": "on"
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "remote.SSH.remotePlatform": {
+        "debianVM": "linux"
+    },
+    "python.showStartPage": false,
+    "python.autoComplete.addBrackets": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.defaultInterpreterPath": "C:/Programy/Python39/python.exe",
+    "vscodeGoogleTranslate.HoverTranslations": false,
+    "vscodeGoogleTranslate.preferredLanguage": "English",
+    "autoDocstring.quoteStyle": "'''"
 }
