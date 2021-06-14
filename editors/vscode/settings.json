@@ -1,35 +1,27 @@
 {
-    "window.zoomLevel": 0,
     "workbench.colorTheme": "Noctis Azureus",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.accessibilitySupport": "off",
-    "editor.renderWhitespace": "none",
-    "editor.renderControlCharacters": false,
     "editor.wordWrap": "on",
-    "editor.insertSpaces": false,
     "editor.rulers": [
         80,
-        120
+        100
     ],
-    "files.autoSave": "off",
-    "telemetry.enableTelemetry": false,
-    "terminal.integrated.shell.windows": "cmd.exe",
     "terminal.integrated.cursorBlinking": true,
-    "python.defaultInterpreterPath": "C:\\Programy\\Python38\\python.exe",
-    "python.showStartPage": false,
-    "python.linting.mypyEnabled": true,
-    "python.autoComplete.addBrackets": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "editor.rulers": [
-            80,
-            100
-        ]
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "remote.SSH.remotePlatform": {
+        "debianVM": "linux"
     },
-    "vscodeGoogleTranslate.preferredLanguage": "English",
+    "python.showStartPage": false,
+    "python.autoComplete.addBrackets": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.defaultInterpreterPath": "C:/Programy/Python39/python.exe",
     "vscodeGoogleTranslate.HoverTranslations": false,
+    "vscodeGoogleTranslate.preferredLanguage": "English",
     "autoDocstring.quoteStyle": "'''"
 }
