@@ -17,3 +17,11 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vsco
 Name: Vscode Google Translate
 Publisher: funkyremi
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=funkyremi.vscode-google-translate
+
+Name: Go
+Publisher: Go Team at Google
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=golang.Go
+
+Name: Task Runner
+Publisher: Sana Ajani
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=SanaAjani.taskrunnercode
